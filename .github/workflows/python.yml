@@ -1,0 +1,31 @@
+on:
+  push:
+    paths:
+      - python/**
+  workflow_dispatch: {}
+    
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install poetry
+        run: pipx install poetry
+        
+      - uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+
+      - run: poetry env use 3.10
+        working-directory: python
+
+      - run: poetry install
+        working-directory: python
+
+      - run: poetry run black --diff .
+        working-directory: python
+
+      - run: poetry run pytest
+        working-directory: python
