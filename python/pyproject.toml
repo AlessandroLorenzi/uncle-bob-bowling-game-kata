@@ -8,6 +8,8 @@ authors = ["Alessandro Lorenzi <me@alorenzi.eu>"]
 python = "^3.10"
 
 [tool.poetry.dev-dependencies]
+black = "^22.3.0"
+pytest = "^7.1.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
