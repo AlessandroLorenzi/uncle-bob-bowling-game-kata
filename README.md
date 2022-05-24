@@ -4,4 +4,4 @@
 
 A kata used by Uncle Bob
 
-Roules: [https://kata-log.rocks/bowling-game-kata]
+Rules: [https://kata-log.rocks/bowling-game-kata]
