@@ -5,12 +5,12 @@ class TestBowling:
     def test_unluckly_game(self):
         self.g = Game()
         self.roll_many(20, 0)
-        assert 0 == self.g.score()
+        assert 0 == self.g.calculate_score()
 
     def test_all_one(self):
         self.g = Game()
         self.roll_many(20, 1)
-        assert 20 == self.g.score()
+        assert 20 == self.g.calculate_score()
 
     def test_spare(self):
         self.g = Game()
@@ -19,7 +19,7 @@ class TestBowling:
         self.g.roll(3)
         self.roll_many(17, 0)
 
-        assert 16 == self.g.score()
+        assert 16 == self.g.calculate_score()
 
     def test_strike(self):
         self.g = Game()
@@ -31,7 +31,7 @@ class TestBowling:
         # 3rd to 10th all zeroes
         self.roll_many(8 * 2, 0)
 
-        assert 20 == self.g.score()
+        assert 20 == self.g.calculate_score()
 
     def test_last_strike(self):
         self.g = Game()
@@ -40,7 +40,7 @@ class TestBowling:
         self.g.roll(2)
         self.g.roll(3)
 
-        assert 15 == self.g.score()
+        assert 15 == self.g.calculate_score()
 
     def test_last_spare(self):
         self.g = Game()
@@ -49,7 +49,7 @@ class TestBowling:
         self.g.roll(5)
         self.g.roll(3)
 
-        assert 16 == self.g.score()
+        assert 16 == self.g.calculate_score()
 
     def test_rookieroad_example(self):
         # Source: https://www.rookieroad.com/bowling/scoring-rules/
@@ -84,12 +84,12 @@ class TestBowling:
         self.g.roll(10)  # Strike!
         self.g.roll(10)  # Strike!
 
-        assert 178 == self.g.score()
+        assert 178 == self.g.calculate_score()
 
     def test_perfect_score(self):
         self.g = Game()
         self.roll_many(12, 10)
-        assert 300 == self.g.score()
+        assert 300 == self.g.calculate_score()
 
     def roll_many(self, n, pins):
         for i in range(n):
