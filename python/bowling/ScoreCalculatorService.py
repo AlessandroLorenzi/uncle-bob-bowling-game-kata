@@ -27,7 +27,7 @@ class ScoreCalculatorService:
             self.__execute_strike()
 
         else:
-            self.__execute_regular_throw()
+            self.__execute_regular_frame()
 
     def __frame_is_spare(self) -> bool:
         return (self.rolls[0] + self.rolls[1]) == self.__MAX_PINS_PER_FRAME
@@ -53,7 +53,7 @@ class ScoreCalculatorService:
         self.__sum_next_throws_to_score(1)
         self.__drop_frame(self.__LAST_THROW_SIZE)
 
-    def __execute_regular_throw(self):
+    def __execute_regular_frame(self):
         self.__sum_next_throws_to_score(2)
         self.__drop_frame(self.__REGULAR_FRAME_SIZE)
 
