@@ -92,5 +92,5 @@ class TestBowling:
         assert 300 == self.g.calculate_score()
 
     def roll_many(self, n, pins):
-        for i in range(n):
+        for _ in range(n):
             self.g.roll(pins)
